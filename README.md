@@ -62,6 +62,7 @@ Gra kontynuuje się, a gracze rywalizują, aż jeden z graczy osiągnie pole num
 **Wygrana**: Gra kończy się, gdy jeden z graczy zostawia drugiego w sytuacji, w której ten musi dodać liczbę i osiągnąć łączną sumę 100. Gracz, który osiągnął ten stan, wygrywa grę.
 
 **Przykład rozgrywki**: 
+
 ![image](examples/numbers_example.png)  
 
 ## Implementacja AI
