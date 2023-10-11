@@ -4,7 +4,7 @@ Na zajęciach wpadliśmy na pomysł gry wyścigowej ze zbijaniem (RACE) (jak w c
 
 # Instalacja
 
-> git clone **link**
+> git clone https://github.com/s22868/nai-game.git
 
 > cd nai-game
 
