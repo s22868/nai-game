@@ -2,25 +2,30 @@
 Authors: Mateusz Budzyński, Igor Gutowski
 
 dependencies:
+    pip install sklearn
     pip install tensorflow
 """
 
-from tensorflow.keras.datasets import fashion_mnist
+from sklearn import datasets
+from sklearn.model_selection import train_test_split 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Flatten, Dense, Dropout
 
+#load dataset
 
-(X_train, y_train), (X_test, y_test) = fashion_mnist.load_data()
+wine = datasets.load_wine()
 
-# normalize data
-X_train = X_train / 255
-X_test = X_test / 255
+#x - data (alcohol, malic_acid) y - target (class ---- 0, 1, 2)
+X = wine.data[:, :2]
+y = wine.target
+
+#split data into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
 # Build the model
 model = Sequential()
-model.add(Flatten(input_shape=(28, 28))),
+model.add(Flatten()),
 model.add(Dense(128, activation="relu")),
-model.add(Dropout(0.5)),
 model.add(Dense(10, activation="softmax"))
 
 # Compile the model
@@ -29,7 +34,7 @@ model.compile(
 )
 
 # Train the model
-model.fit(X_train, y_train, epochs=10, batch_size=128, validation_data=(X_test, y_test))
+model.fit(X_train, y_train, epochs=40, verbose=1, validation_data=(X_test, y_test))
 
 # Evaluate the model
 loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
